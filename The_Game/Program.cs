@@ -25,6 +25,37 @@ namespace The_rock_paper_scissors_project
             }
             return "";
         }
+        public static string GetResult(string player, string computer)
+        {
+            if(player == "Камень" && computer == "Ножницы")
+            {
+                return "Победил игрок";
+            }
+            else if (player == "Камень" && computer == "Бумага")
+            {
+                return "Победил компьютер";
+            }
+            else if (player == "Ножницы" && computer == "Бумага")
+            {
+                return "Победил игрок";
+            }
+            else if (player == "Ножницы" && computer == "Камень")
+            {
+                return "Победил компьютер";
+            }
+            else if (player == "Бумага" && computer == "Камень")
+            {
+                return "Победил игрок";
+            }
+            else if (player == "Бумага" && computer == "Ножницы")
+            {
+                return "Победил компьютер";
+            }
+            else
+            {
+                return "Ничья";
+            }
+        }
         static void Main(string[] args)
         {
             Random rand = new Random();
@@ -43,19 +74,25 @@ namespace The_rock_paper_scissors_project
                     case "1":
                         {
                             Console.Write("Ваш выбор: Камень\t-");
-                            Console.WriteLine($"\tВыбор компьютера: {ComputerMove(rand)}");
+                            string computer_run = ComputerMove(rand);
+                            Console.WriteLine($"\tВыбор компьютера: {computer_run}");
+                            Console.WriteLine($"{GetResult("Камень", computer_run)}");
                             break;
                         }
                     case "2":
                         {
                             Console.Write("Ваш выбор: Ножницы\t-");
-                            Console.WriteLine($"\tВыбор компьютера: {ComputerMove(rand)}");
+                            string computer_run = ComputerMove(rand);
+                            Console.WriteLine($"\tВыбор компьютера: {computer_run}");
+                            Console.WriteLine($"{GetResult("Ножницы", computer_run)}");
                             break;
                         }
                     case "3":
                         {
                             Console.Write("Ваш выбор: Бумага\t-");
-                            Console.WriteLine($"\tВыбор компьютера: {ComputerMove(rand)}");
+                            string computer_run = ComputerMove(rand);
+                            Console.WriteLine($"\tВыбор компьютера: {computer_run}");
+                            Console.WriteLine($"{GetResult("Бумага", computer_run)}");
                             break;
                         }
                     case "0":
@@ -66,6 +103,7 @@ namespace The_rock_paper_scissors_project
                     default:
                         {
                             Console.WriteLine("Некорректный ввод данных");
+                            Console.WriteLine();
                             break;
                         }
                 }
